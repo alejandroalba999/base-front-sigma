@@ -20,14 +20,14 @@
         <input class="form-control form-control-sm" type="text" placeholder="Ingresa nombre"
         [(ngModel)]="this.empleadoModel.strPuesto" name="strPuesto">
       </div>
-      <div class="row mt-3">
-        <div class="col-md-6">
-          <button class="btn btn-sm btn-outline-danger col-12" (click)="this.actualizarEmpleado()">Cancelar</button>
-        </div>
+    </div>
+    <div class="row mt-3">
       <div class="col-md-6">
-        <button class="btn btn-sm btn-outline-primary col-12" (click)="this.actualizarEmpleado()">Actualizar</button>
+        <button class="btn btn-sm btn-outline-danger col-12" (click)="this.actualizarEmpleado()">Cancelar</button>
       </div>
-      </div>
+    <div class="col-md-6">
+      <button class="btn btn-sm btn-outline-primary col-12" (click)="this.actualizarEmpleado()">Actualizar</button>
+    </div>
     </div>
   </form>
 </div>

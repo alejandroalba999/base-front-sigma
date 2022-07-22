@@ -24,10 +24,8 @@ export class EmpleadoEditComponent implements OnInit {
    this.empleadoModel= this._empleadoService.obtenerEmpleadoById(this.idEmpleado); 
   }
   actualizarEmpleado(){
+    this._empleadoService.actualizarEmpleado(this.idEmpleado, this.empleadoModel);
     this.salida.emit();
-    this.empleadoModel.strPuesto = "";
-    this.empleadoModel.strNombre = "";
-    this.empleadoModel.nmbNumeroEmpleado = null;
   }
 
 }

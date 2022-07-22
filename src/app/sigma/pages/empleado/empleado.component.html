@@ -1,11 +1,11 @@
 <div class="card">
     <div class="card-body">
      <div class="row">
-      <div class="col-md-4">
-       <app-empleado-register *ngIf="!blnActualizar"></app-empleado-register>
-       <app-empleado-edit *ngIf="blnActualizar" [idEmpleadoInput]="this.idEmpleado" (salida)="reload()"></app-empleado-edit>
+      <div class="col-md-4 col-sm-12">
+       <app-empleado-register *ngIf="!blnActualizar" (salida)="getEmpleados()"></app-empleado-register>
+       <app-empleado-edit *ngIf="blnActualizar" [idEmpleadoInput]="this.idEmpleado" (salida)="getEmpleados()"></app-empleado-edit>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 col-sm-12">
        <div class="card">
        <div class="row mt-2 me-1 ms-1">
         <div class="col-md-11">
@@ -39,9 +39,9 @@
                 <div class="btn-group dropleft">
                   <button type="button" data-toggle="dropdown" class="btn btn-outline-danger btn-sm dropdown-toggle">...</button>
                   <div class="dropdown-menu">
-                    <button class="dropdown-item button-click" type="button">Desactivar</button>
+                    <button class="dropdown-item button-click" type="button" (click)="this.eliminarEmpleado(empleado._id)">Desactivar</button>
                     <button class="dropdown-item button-click" (click)="this.actualizar(empleado._id)" type="button">Actualizar</button>
-                    <button class="dropdown-item button-click" type="button">Registrar habilidad</button>
+                    <button class="dropdown-item button-click" type="button" (click)="this.asignarHabilidad(empleado._id)">Registrar habilidad</button>
                   </div>
                 </div>
               </td>

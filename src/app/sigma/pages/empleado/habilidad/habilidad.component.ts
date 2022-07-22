@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-habilidad',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./habilidad.component.css']
 })
 export class HabilidadComponent implements OnInit {
-
-  constructor() { }
+  idEmpleado: any = "";
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe( paramMap => {
+      this.idEmpleado = paramMap.get('idEmpleado');
+  })
+    
   }
 
 }

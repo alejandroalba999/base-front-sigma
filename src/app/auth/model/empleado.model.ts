@@ -1,5 +1,5 @@
-export class EmpleadoModel {
-  nmbNumeroEmpleado = Number;
-  strNombre = String;
-  strPuesto = String;
+export class EmpleadoModel{
+  nmbNumeroEmpleado: Number = 0;
+  strNombre: String = "";
+  strPuesto: String = "";
 }

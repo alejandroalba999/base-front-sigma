@@ -20,7 +20,7 @@
     <hr>
     <div class="offcanvas-body card">
         <ul class="list-group" *ngFor="let modulo of this.arrModulos">
-            <label class="list-group-item m-1  {{modulo.strRuta === this.pathName ? 'active': ''}}"
+            <label class="list-group-item m-1  {{modulo.strRuta ===  this.pathName ? 'active': ''}}"
             style="cursor:pointer;"
             (click)="this.navigate(modulo.strRuta, modulo.strNombre)"
             data-bs-dismiss="offcanvas" >

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {  ActivatedRoute, ActivationEnd, Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
+import { filter,map } from 'rxjs/operators';
 import { PermisoService } from 'src/app/auth/services/permisos.service';
 import Swal from 'sweetalert2';
 
@@ -16,21 +17,21 @@ export class NavbarComponent implements OnInit {
   strRutaImg: string = '';
   arrModulos: any = [];
   routeName: string = 'Menu';
-  pathName: string = location.href.split('#')[1];
-  constructor( private router: Router, private _permisosService: PermisoService) { }
-  ngOnInit(): void {     
-    if (localStorage.getItem('userName')) {
-      this.userName = localStorage.getItem('userName')!;
-    }
+  pathName: string = "";
+  constructor( private router: Router, private _permisosService: PermisoService) {}
+  ngOnInit(): void {  
     this.obtenerModulos();
   }
   navigate(ruta: string, nombreRuta: string){
-    console.log('navegar a :', ruta);
     this.routeName = nombreRuta;
     this.pathName = ruta;
     this.router.navigate([ruta]);
   }
   obtenerModulos(){
+    if (localStorage.getItem('userName')) {
+      this.userName = localStorage.getItem('userName')!;
+    }
+    this.pathName = this.router.url 
     const token = `${localStorage.getItem('token')}`;
     this.decode = jwtDecode(token);
     this.strRutaImg = `${this._permisosService.urlImg}/usuario/${this.decode.usuario.strImagen}`
@@ -43,7 +44,6 @@ export class NavbarComponent implements OnInit {
     this.cargando = false;
     });
   }
-
   logout(): void {
     Swal.fire({
       title: 'Are you sure?',
