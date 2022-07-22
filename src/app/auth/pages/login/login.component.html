@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row mt-5 p-5 shadow">
+      <div class="col-md-8">
+          <img src="../../../../assets/img/fondo.jpg" class="card shadow" width="95%"/>
+      </div>
+      <div class="col-md-4 col-sm-12 card shadow">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="text-center m-3">
+                      <img src="../../../../assets/img/favicon.png"  width="70px"/>
+                  </div>
+                  <form (ngSubmit)="login()" class="m-3">
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                      <label for="floatingInput">Correo</label>
+                    </div>
+                    <div class="form-floating">
+                      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                      <label for="floatingPassword">Contraseña</label>
+                    </div>
+                      <div class="d-grid gap-2 mt-3">
+                          <button [disabled]="!email || !password" type="submit" class="btn btn-outline-danger">Login</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
